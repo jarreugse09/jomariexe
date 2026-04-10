@@ -7,7 +7,6 @@ import { projects } from "@/data/projects";
 import { ProjectBentoCard } from "@/components/ProjectBentoCard";
 import { FlickeringGrid } from "@/components/online-comp/FlickeringGrid";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 function ProjectsPageContent() {
@@ -34,19 +33,10 @@ function ProjectsPageContent() {
   };
 
   return (
-    <section className="!relative !min-h-screen !flex !items-center !justify-center !px-4 md:!px-8 !py-20 !overflow-hidden !bg-black">
-      {/* Back Button */}
-      <Link
-        href="/#projects"
-        className="!absolute !top-24 !left-4 md:!left-8 !z-20 !p-3 !rounded-lg !border !border-[var(--accent)] !text-[var(--accent)] hover:!bg-[var(--accent)]/10 !transition-all !duration-300 !flex !items-center !gap-2"
-      >
-        <FaChevronLeft className="!w-4 !h-4" />
-        <span className="!text-sm !font-mono">Back</span>
-      </Link>
-
+    <section className="relative! min-h-screen! flex! items-center! justify-center! px-4! md:px-8! py-20! overflow-hidden! bg-black!">
       {/* FlickeringGrid Background */}
       <FlickeringGrid
-        className="!absolute !inset-0"
+        className="absolute! inset-0!"
         squareSize={4}
         gridGap={6}
         flickerChance={0.3}
@@ -54,9 +44,9 @@ function ProjectsPageContent() {
         maxOpacity={0.1}
       />
 
-      <div className="!container !max-w-7xl !relative !z-10 !w-full">
+      <div className="container! max-w-7xl! relative! z-10! w-full!">
         {/* Project Display */}
-        <div className="!mb-2">
+        <div className="mb-2!">
           <ProjectBentoCard project={currentProject} />
         </div>
 
@@ -65,7 +55,7 @@ function ProjectsPageContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="!flex !items-center !justify-center !gap-6 !py-4"
+          className="flex! items-center! justify-center! gap-6! py-4!"
         >
           {/* Navigation Buttons */}
           <motion.button
@@ -73,14 +63,14 @@ function ProjectsPageContent() {
             whileTap={{ scale: 0.95 }}
             onClick={handlePrev}
             disabled={totalProjects <= 1}
-            className="!p-3 !rounded-lg !border !border-[var(--accent)] !text-[var(--accent)] hover:!bg-[var(--accent)]/10 !transition-all !duration-300 disabled:!opacity-50 disabled:!cursor-not-allowed hover:disabled:!bg-transparent"
+            className="p-3! rounded-lg! border! border-(--accent)! text-(--accent)! hover:bg-(--accent)/10! transition-all! duration-300! disabled:opacity-50! disabled:cursor-not-allowed! hover:disabled:bg-transparent!"
             aria-label="Previous project"
           >
-            <FaChevronLeft className="!w-5 !h-5" />
+            <FaChevronLeft className="w-5! h-5!" />
           </motion.button>
 
           {/* Project Counter */}
-          <p className="!text-sm !uppercase !tracking-widest !text-[var(--accent)] !font-mono !px-6">
+          <p className="text-sm! uppercase! tracking-widest! text-(--accent)! font-mono! px-6!">
             {currentIndex + 1} / {totalProjects}
           </p>
 
@@ -89,10 +79,10 @@ function ProjectsPageContent() {
             whileTap={{ scale: 0.95 }}
             onClick={handleNext}
             disabled={totalProjects <= 1}
-            className="!p-3 !rounded-lg !border !border-[var(--accent)] !text-[var(--accent)] hover:!bg-[var(--accent)]/10 !transition-all !duration-300 disabled:!opacity-50 disabled:!cursor-not-allowed hover:disabled:!bg-transparent"
+            className="p-3! rounded-lg! border! border-(--accent)! text-(--accent)! hover:bg-(--accent)/10! transition-all! duration-300! disabled:opacity-50! disabled:cursor-not-allowed! hover:disabled:bg-transparent!"
             aria-label="Next project"
           >
-            <FaChevronRight className="!w-5 !h-5" />
+            <FaChevronRight className="w-5! h-5!" />
           </motion.button>
         </motion.div>
 
@@ -102,15 +92,15 @@ function ProjectsPageContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="!flex !flex-wrap !justify-center !gap-10 !pt-6">
+          <div className="flex! flex-wrap! justify-center! gap-10! pt-6!">
             {projects.map((project, index) => (
               <button
                 key={project.id}
                 onClick={() => setCurrentIndex(index)}
-                className={`!text-sm !transition-all !duration-300 !py-1 ${
+                className={`text-sm! transition-all! duration-300! py-1! ${
                   index === currentIndex
-                    ? "!text-[var(--accent)] !font-semibold"
-                    : "!text-[var(--fg-muted)] hover:!text-[var(--accent)]"
+                    ? "text-(--accent)! font-semibold!"
+                    : "text-(--fg-muted)! hover:text-(--accent)!"
                 }`}
               >
                 {project.title}
@@ -126,8 +116,8 @@ export default function ProjectPage() {
   return (
     <Suspense
       fallback={
-        <section className="!relative !min-h-screen !flex !items-center !justify-center !px-4 md:!px-8 !overflow-hidden !bg-black">
-          <p className="!text-sm !uppercase !tracking-widest !text-[var(--accent)] !font-mono">
+        <section className="relative! min-h-screen! flex! items-center! justify-center! px-4! md:px-8! overflow-hidden! bg-black!">
+          <p className="text-sm! uppercase! tracking-widest! text-(--accent)! font-mono!">
             Loading Projects...
           </p>
         </section>

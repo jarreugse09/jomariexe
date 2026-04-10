@@ -53,24 +53,24 @@ interface ProjectBentoCardProps {
 const ImageHeader = ({ src, alt }: { src: string; alt: string }) => (
   <motion.div
     whileHover={{ scale: 1.08 }}
-    className="!relative !w-full !h-full !rounded-xl !overflow-hidden"
+    className="relative! w-full! h-full! rounded-xl! overflow-hidden!"
   >
-    <Image src={src} alt={alt} fill className="!object-cover" />
+    <Image src={src} alt={alt} fill className="object-cover!" />
   </motion.div>
 );
 
 const TechStackIcon = ({ tech }: { tech: string }) => (
   <motion.div
     whileHover={{ scale: 1.25, rotate: 8 }}
-    className="!p-4 !text-[var(--accent)]"
+    className="p-4! text-(--accent)!"
     title={tech}
   >
-    {techIcons[tech] || <span className="!text-sm">{tech}</span>}
+    {techIcons[tech] || <span className="text-sm!">{tech}</span>}
   </motion.div>
 );
 
 const LinksIcon = ({ repo, live }: { repo?: string; live?: string }) => (
-  <div className="!flex !gap-3 !w-full">
+  <div className="flex! gap-3! w-full!">
     {repo && (
       <motion.a
         href={repo}
@@ -78,10 +78,10 @@ const LinksIcon = ({ repo, live }: { repo?: string; live?: string }) => (
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="!flex-1 !text-[var(--accent)] !p-4 !rounded-lg !border !border-[var(--accent)]/50 hover:!border-[var(--accent)] hover:!bg-[var(--accent)]/10 !transition-all !duration-300 !flex !items-center !justify-center"
+        className="flex-1! text-(--accent)! p-4! rounded-lg! border! border-(--accent)/50! hover:border-(--accent)! hover:bg-(--accent)/10! transition-all! duration-300! flex! items-center! justify-center!"
         title="GitHub Repository"
       >
-        <FaGithub className="!w-7 !h-7" />
+        <FaGithub className="w-7! h-7!" />
       </motion.a>
     )}
     {live && (
@@ -91,10 +91,10 @@ const LinksIcon = ({ repo, live }: { repo?: string; live?: string }) => (
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="!flex-1 !text-[var(--accent)] !p-4 !rounded-lg !border !border-[var(--accent)]/50 hover:!border-[var(--accent)] hover:!bg-[var(--accent)]/10 !transition-all !duration-300 !flex !items-center !justify-center"
+        className="flex-1! text-(--accent)! p-4! rounded-lg! border! border-(--accent)/50! hover:border-(--accent)! hover:bg-(--accent)/10! transition-all! duration-300! flex! items-center! justify-center!"
         title="Live Demo"
       >
-        <FaExternalLinkAlt className="!w-7 !h-7" />
+        <FaExternalLinkAlt className="w-7! h-7!" />
       </motion.a>
     )}
   </div>
@@ -121,7 +121,7 @@ export function ProjectBentoCard({ project }: ProjectBentoCardProps) {
         <BentoGridItem
           title={project.title}
           description={
-            <div className="!text-base !text-[var(--fg-muted)]">
+            <div className="text-base! text-(--fg-muted)!">
               {project.overview}
             </div>
           }
@@ -132,13 +132,13 @@ export function ProjectBentoCard({ project }: ProjectBentoCardProps) {
         <BentoGridItem
           title="Key Features"
           description={
-            <ul className="!space-y-3 !mt-3">
+            <ul className="space-y-3! mt-3!">
               {project.features.map((feature, idx) => (
                 <li
                   key={idx}
-                  className="!text-base !text-[var(--fg-muted)] !flex !gap-2 !leading-relaxed"
+                  className="text-base! text-(--fg-muted)! flex! gap-2! leading-relaxed!"
                 >
-                  <span className="!text-[var(--accent)] !min-w-fit !text-lg">
+                  <span className="text-(--accent)! min-w-fit! text-lg!">
                     •
                   </span>
                   <span>{feature}</span>
@@ -153,13 +153,13 @@ export function ProjectBentoCard({ project }: ProjectBentoCardProps) {
         <BentoGridItem
           title="Links & Stack"
           description={
-            <div className="!flex !flex-col !gap-6 !mt-3 !items-center !justify-start !h-full">
-              <div className="!flex !gap-3 !flex-wrap !justify-center">
+            <div className="flex! flex-col! gap-6! mt-3! items-center! justify-start! h-full!">
+              <div className="flex! gap-3! flex-wrap! justify-center!">
                 {project.techStack.map((tech) => (
                   <TechStackIcon key={tech} tech={tech} />
                 ))}
               </div>
-              <div className="!w-full !mt-30">
+              <div className="w-full! mt-30!">
                 <LinksIcon repo={project.githubUrl} live={project.liveUrl} />
               </div>
             </div>

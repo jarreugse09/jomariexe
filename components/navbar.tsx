@@ -8,28 +8,30 @@ import ThemeToggle from "./ThemeToggle";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const isProjectsPage = pathname?.startsWith("/projects");
 
   const getNavTitle = () => {
-    if (pathname === "/projects") {
-      return "&gt; Jomarie/Projects";
+    if (isProjectsPage) {
+      return "< Back";
     }
-    return "&gt; Jomarie";
+    return "> Jomarie";
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-(--bg)/90 backdrop-blur-md border-b border-(--border)">
       <div className="container">
         <div className="flex items-center justify-between py-6 md:py-7">
           {/* Logo */}
           <div className="flex items-center gap-4">
             <Link
-              href={pathname === "/projects" ? "/#projects" : "/"}
+              href="/"
               className="terminal-text font-bold text-xl md:text-2xl
-                         text-[var(--accent)]
-                         hover:text-[var(--accent-bright)]
+                         text-(--accent)
+                         hover:text-(--accent-bright)
                          transition-colors"
-              dangerouslySetInnerHTML={{ __html: getNavTitle() }}
-            />
+            >
+              {getNavTitle()}
+            </Link>
           </div>
 
           {/* Desktop */}
@@ -45,35 +47,35 @@ export default function Navbar() {
               onClick={() => setOpen(!open)}
               className="w-10 h-10 flex flex-col justify-center items-center"
             >
-              <span className="w-6 h-0.5 bg-[var(--accent)] mb-1.5" />
-              <span className="w-6 h-0.5 bg-[var(--accent)] mb-1.5" />
-              <span className="w-6 h-0.5 bg-[var(--accent)]" />
+              <span className="w-6 h-0.5 bg-(--accent) mb-1.5" />
+              <span className="w-6 h-0.5 bg-(--accent) mb-1.5" />
+              <span className="w-6 h-0.5 bg-(--accent)" />
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden border-t border-[var(--border)] bg-[var(--bg)]">
+          <div className="md:hidden border-t border-(--border) bg-(--bg)">
             <div className="flex flex-col p-6 gap-4">
               <Link
                 href="/"
                 onClick={() => setOpen(false)}
-                className="terminal-text text-base text-[var(--fg-muted)] hover:text-[var(--accent)] transition-colors"
+                className="terminal-text text-base text-(--fg-muted) hover:text-(--accent) transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/#projects"
                 onClick={() => setOpen(false)}
-                className="terminal-text text-base text-[var(--fg-muted)] hover:text-[var(--accent)] transition-colors"
+                className="terminal-text text-base text-(--fg-muted) hover:text-(--accent) transition-colors"
               >
                 Projects
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="terminal-text text-base text-[var(--fg-muted)] hover:text-[var(--accent)] transition-colors"
+                className="terminal-text text-base text-(--fg-muted) hover:text-(--accent) transition-colors"
               >
                 Contact
               </Link>

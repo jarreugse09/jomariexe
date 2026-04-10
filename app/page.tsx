@@ -64,12 +64,12 @@ export default function Home() {
       </div>
 
       {/* Bottom Dock */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-60">
         <Docker items={dockItems} panelHeight={60} baseItemSize={40} />
       </div>
 
       {/* Bottom Blur */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none h-[12rem]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none h-48">
         <GradualBlur
           target="parent"
           position="bottom"
@@ -80,7 +80,7 @@ export default function Home() {
           exponential={true}
           opacity={1}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent" />
       </div>
     </main>
   );

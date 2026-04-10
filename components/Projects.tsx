@@ -1,13 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { projects } from "@/data/projects";
-import { useRouter } from "next/navigation";
 
 export default function Projects() {
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -68,10 +65,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-20 overflow-hidden bg-[var(--bg)]"
+      className="relative py-20 overflow-hidden bg-(--bg)"
     >
       <div className="container max-w-[95vw] mx-auto px-4">
-        <div className="section-title mb-12 uppercase tracking-widest text-[var(--accent)] opacity-100">
+        <div className="section-title mb-12 uppercase tracking-widest text-(--accent) opacity-100">
           Selected_Works
         </div>
         <div className="relative group/carousel">
@@ -82,7 +79,7 @@ export default function Projects() {
           {/* Nav Buttons */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-[var(--bg)] border border-[var(--border)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg)] transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
+            className="absolute left-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
           >
             <svg
               width="34"
@@ -97,7 +94,7 @@ export default function Projects() {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-[var(--bg)] border border-[var(--border)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg)] transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
+            className="absolute right-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
           >
             <svg
               width="34"
@@ -120,31 +117,30 @@ export default function Projects() {
               <motion.div
                 key={`${project.id}-${index}`}
                 whileHover={{ y: -10 }}
-                onClick={() => router.push(`/projects?id=${project.id}`)}
+                onClick={() => {
+                  window.location.href = `/projects?id=${project.id}`;
+                }}
                 role="button"
                 tabIndex={0}
-                className="project-card w-[85vw] md:w-[400px] snap-center crt-card group flex flex-col h-[500px] overflow-hidden flex-shrink-0 !p-0 transition-all duration-300 hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.2)] cursor-pointer"
+                className="project-card w-[85vw] md:w-100 snap-center crt-card group flex flex-col h-125 overflow-hidden shrink-0 p-0! transition-all duration-300 hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.2)] cursor-pointer"
               >
                 {/* 1. IMAGE: Perfectly Flush */}
-                <div className="relative w-full h-60 overflow-hidden m-0 p-0 bg-[var(--bg-secondary)]">
-                  <Image
+                <div className="relative w-full h-60 overflow-hidden m-0 p-0 bg-(--bg-secondary)">
+                  <img
                     src={project.imageUrl}
                     alt={project.title}
-                    fill
-                    priority={false}
-                    sizes="(max-width: 768px) 85vw, 400px"
-                    className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
+                    className="absolute inset-0 h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
                 {/* 2. CONTENT: Inset */}
-                <div className="flex-1 p-6 bg-[var(--bg-secondary)] border-t border-[var(--border)] flex flex-col overflow-hidden min-h-0">
+                <div className="flex-1 p-6 bg-(--bg-secondary) border-t border-(--border) flex flex-col overflow-hidden min-h-0">
                   {/* TOP SECTION: Title, Buttons, Desc */}
                   <div className="flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-3">
                       {/* Title */}
-                      <h3 className="mt-3! ml-5! text-4xl font-bold text-[var(--fg)] tracking-tight group-hover:text-[var(--accent)] transition-colors">
+                      <h3 className="mt-3! ml-5! text-4xl font-bold text-(--fg) tracking-tight group-hover:text-(--accent) transition-colors">
                         {project.title}
                       </h3>
 
@@ -159,7 +155,7 @@ export default function Projects() {
                             onClick={(e) => e.stopPropagation()}
                             whileHover={{ scale: 1.1, rotate: 10 }}
                             whileTap={{ scale: 0.9 }}
-                            className="mt-5! w-11 h-11 flex items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg)] bg-[var(--bg)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors z-10"
+                            className="mt-5! w-11 h-11 flex items-center justify-center rounded-full border border-(--border) text-(--fg) bg-(--bg) hover:border-(--accent) hover:text-(--accent) transition-colors z-10"
                             title="View Source"
                           >
                             <svg
@@ -186,7 +182,7 @@ export default function Projects() {
                             onClick={(e) => e.stopPropagation()}
                             whileHover={{ scale: 1.1, rotate: -10 }}
                             whileTap={{ scale: 0.9 }}
-                            className="mt-5! w-11 h-11 flex items-center justify-center rounded-full bg-[var(--accent)] text-[var(--bg)] shadow-[0_0_15px_rgba(var(--accent-rgb),0.5)] z-10"
+                            className="mt-5! w-11 h-11 flex items-center justify-center rounded-full bg-(--accent) text-(--bg) shadow-[0_0_15px_rgba(var(--accent-rgb),0.5)] z-10"
                             title="Live Demo"
                           >
                             <svg
@@ -208,7 +204,7 @@ export default function Projects() {
                     </div>
 
                     {/* Description */}
-                    <p className="ml-5! text-[var(--fg-muted)] text-lg line-clamp-2 leading-relaxed">
+                    <p className="ml-5! text-(--fg-muted) text-lg line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -218,7 +214,7 @@ export default function Projects() {
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className=" py-1! px-1! text-xs border border-[var(--border)] rounded-sm text-[var(--accent)] uppercase tracking-tighter bg-[var(--bg)]/50"
+                        className=" py-1! px-1! text-xs border border-(--border) rounded-sm text-(--accent) uppercase tracking-tighter bg-(--bg)/50"
                       >
                         {tech}
                       </span>
@@ -237,20 +233,20 @@ export default function Projects() {
                 key={i}
                 className={`h-1.5 transition-all duration-500 rounded-full ${
                   i === activeIndex
-                    ? "w-12 bg-[var(--accent)]"
-                    : "w-3 bg-[var(--border)]"
+                    ? "w-12 bg-(--accent)"
+                    : "w-3 bg-(--border)"
                 }`}
               />
             ))}
           </div>
-          <div className="terminal-text text-xl font-bold text-[var(--accent)]">
+          <div className="terminal-text text-xl font-bold text-(--accent)">
             <span className="opacity-40">PROJECT_NO._</span>
             {activeIndex + 1} / {projects.length}
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
