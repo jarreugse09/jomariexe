@@ -105,4 +105,42 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://rmblawph.vercel.app/",
   },
+  {
+  id: 6,
+  title: "Setmona",
+  description:
+    "Modular SaaS ecosystem designed to centralize business operations, monitoring systems, and organizational management into a unified platform.",
+  overview:
+    "Setmona is a scalable SaaS ecosystem built to unify business operations, client management, analytics, and internal workflows into a single centralized platform. It is designed with a multi-tenant architecture to support multiple organizations while maintaining secure data isolation. The system provides a clean, responsive interface for managing records, monitoring activity, and handling operational processes efficiently across different business environments.",
+  features: [
+    "Multi-tenant architecture with secure organization-based data isolation.",
+    "Role-based access control for admins and users.",
+    "Client and records management system for structured data handling.",
+    "Operational dashboard for monitoring and analytics.",
+    "Responsive and modern UI designed for enterprise usability.",
+  ],
+  techStack: ["TypeScript", "React", "Node.js", "Express", "MongoDB"],
+  imageUrl: "/project_img/setmona.png",
+  githubUrl: "",
+  liveUrl: "https://setmona.vercel.app/",
+},
+{
+  id: 7,
+  title: "BYD Alabang",
+  description:
+    "A website for browsing BYD vehicles, viewing specifications, requesting quotations, submitting applications, and locating dealerships.",
+  overview:
+    "BYD Alabang is an informational and lead-generation website designed to showcase BYD vehicles and streamline customer inquiries. It allows users to explore detailed car specifications, compare models, request quotations, and submit purchase applications. The platform also provides dealership location information to help customers easily find nearby branches. Built with a focus on clarity, responsiveness, and user experience, it serves as a digital gateway between customers and BYD sales services.",
+  features: [
+    "Vehicle browsing system with detailed specifications and model comparisons.",
+    "Quotation request form for potential buyers.",
+    "Application submission system for inquiries and purchases.",
+    "Dealership locator for BYD alabang branch.",
+    "Responsive UI optimized for desktop and mobile users.",
+  ],
+  techStack: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+  imageUrl: "/project_img/bydalabang.png",
+  githubUrl: "",
+  liveUrl: "https://bydalabang.vercel.app/",
+}
 ];

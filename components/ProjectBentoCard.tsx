@@ -53,7 +53,7 @@ interface ProjectBentoCardProps {
 const ImageHeader = ({ src, alt }: { src: string; alt: string }) => (
   <motion.div
     whileHover={{ scale: 1.08 }}
-    className="relative! w-full! h-full! rounded-xl! overflow-hidden!"
+    className="relative! w-full! h-52! md:h-full! rounded-xl! overflow-hidden!"
   >
     <Image src={src} alt={alt} fill className="object-cover!" />
   </motion.div>
@@ -159,7 +159,7 @@ export function ProjectBentoCard({ project }: ProjectBentoCardProps) {
                   <TechStackIcon key={tech} tech={tech} />
                 ))}
               </div>
-              <div className="w-full! mt-30!">
+              <div className="w-full! mt-4! md:mt-28!">
                 <LinksIcon repo={project.githubUrl} live={project.liveUrl} />
               </div>
             </div>

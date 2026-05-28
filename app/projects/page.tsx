@@ -92,7 +92,7 @@ function ProjectsPageContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="flex! flex-wrap! justify-center! gap-10! pt-6!">
+          <div className="flex! flex-wrap! justify-center! gap-3! md:gap-10! pt-6!">
             {projects.map((project, index) => (
               <button
                 key={project.id}

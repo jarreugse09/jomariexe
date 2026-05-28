@@ -79,7 +79,7 @@ export default function Projects() {
           {/* Nav Buttons */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
+            className="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
           >
             <svg
               width="34"
@@ -94,7 +94,7 @@ export default function Projects() {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
+            className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-30 p-5 rounded-full bg-(--bg) border border-(--border) text-(--accent) hover:bg-(--accent) hover:text-(--bg) transition-all opacity-100 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]"
           >
             <svg
               width="34"
